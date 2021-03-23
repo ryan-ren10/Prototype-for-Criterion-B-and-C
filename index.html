@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+  <html>
+
+      <!--This .html file is the home page-->
+
+  <head> <!-- START of the HEAD Section ----------------------------------------------------->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link to font-awesome style sheet to access media icons --->
+
+    <style>
+    	/* Features specifically for the "h1" tag */
+        h1.features {
+        text-align: center;
+        text-shadow: 1px 2px 3px rgba(0,10,30,.5);
+        margin:0;
+        padding:30px 0px 30px;
+        background-color: OliveDrab;
+        color: Brown;
+        font-size:45px;
+        }
+
+        /* Features specifically for the "p" tag */
+        p.features {
+        text-align: center;
+        color: blue;
+        }
+
+        /* Features that apply to the whole body */
+        body {
+        margin: 0;
+        height:100%;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: darkgreen;
+        }
+        /* Make the height of the html be 100% */
+        html {
+          height:100%;
+        }
+        /* Style for the background image header */
+        h2.img-caption {
+          font-size: 70px;
+          color:white;
+
+        }
+        /* Style for the image description text */
+        p.img-descrip {
+          color:black;
+          font-size:32px;
+        }
+        /* Style for the learn more button for the background image */
+        .img-button {
+          border:none;
+          color:white;
+          background-color: black;
+          padding:18px 35px;
+          border-radius: 25px;
+          font-size:25px;
+
+        }
+        /* Hover style for the learn more button on the background image */
+        .img-button:hover {
+          color:black;
+          background-color:darkorange;
+        }
+        /* Sytyle for the background-image */
+        .bg {
+          /* The image used */
+          background-image: url("hand_globe.jpg");
+          /* 85% height */
+          height: 85%; 
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        /* Positioning where the div for the background image header, text, and button will be */
+        .top-left {
+          position:absolute;
+          top:200px;
+          left:45px;
+          max-width:600px;
+        }
+
+        /* Features specifically for the TOP NAVIGATION BAR */
+        .topnav {
+        overflow: hidden;
+        padding-top: 6px;
+        background-color: #333;
+        }
+
+        /* Features specifically for the TOP NAVIGATION BAR */
+        .topnav a.links {
+        float: right;
+        color: orange;
+        text-align: center;
+        padding: 24px 30px;
+        border-radius: 21px;
+        margin-right:7px;
+        text-decoration: none;
+        font-size: 23px;
+        }
+
+        
+        /* Features specifically for the TOP NAVIGATION BAR */
+        .topnav a:hover {
+          border-radius: 21px;
+          background-color: Khaki;
+          color: black;
+        }
+
+        /* Features specifically for the TOP NAVIGATION BAR */
+        .topnav a.active {
+          border-radius: 21px;
+          background-color: #4CAF50;
+          color: orange;
+        }
+        /* Features for the logo for the top nav bar*/
+        .topnav a.logo {
+          float:left;
+          text-decoration-line: underline overline; /* Create two double underline and overline bars for the logo */
+          text-decoration-style: double;
+          text-decoration-color:gold;
+          padding:24px 30px;
+          color:MediumSeaGreen;
+          font-size:29px;
+        }
+        /* Make the background color stay the same when the logo is hovered over so nothing changes */
+        .topnav a.logo:hover {
+          background-color: #333;
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion {
+          background-color: #6FD25A;
+          color: darkorange;
+          cursor: pointer;
+          padding: 35px 18px 35px;
+          width: 100%;
+          text-align: left;
+          border: none;
+          outline: none;
+          transition: 0.4s;
+          font-size:30px;
+          font-weight: bolder;
+        }
+        /*Lighter green color for the second accordion */
+        .accordion2 {
+          background-color: #8CEF74;
+        }
+        /* Even lighter green color for the 3rd accordion */
+        .accordion3 {
+          background-color: #C6FFAB;
+        }
+        /* Have a plus icon in the right of collapsible for when accordion is closed */
+        .accordion:after {
+          content: '\02795'; /* Unicode character for "plus" sign (+) */
+          font-size: 23px;
+          float: right;
+          margin-left: 5px;
+        }
+        /* Have a minus icon on the right when accordion is open */
+        .active-accord:after {
+          content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+          padding: 0 18px;
+          background-color: darkgray;
+          display: none;
+          overflow: hidden;
+          color:white;
+        }
+        /*Create a row for the content in the panels of the accordions */
+        .panel-row {
+          display:flex;
+        }
+        /* Create 2 even columns for the content inside the row of the panel content */
+        .panel-column {
+          flex:50%;
+          padding:10px;
+        }
+        /* Style the individual list indexes */
+        li {
+          font-size:20px;
+          display:list-item;
+          text-align: -webkit-match-parent;
+          padding-top:20px;
+          padding-bottom: 20px;
+        }
+        /* style the row for the flip cards */
+        .row {
+          display:flex;
+          align-content:space-between;
+        }
+        /* Style the column for 3 each row evenly for each flip card */
+        .column {
+          flex:33.33%;
+          padding:50px;
+        }
+        /* style the overall flip-card */
+        .flip-card {
+          background-color: transparent;
+          width:100%;
+          height:250px;
+          border: 1px solid #f1f1f1;
+          perspective: 1000px; /* Remove this if you don't want the 3D effect */
+        }
+        /* Style the inner part of the flip-card */
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+        /* Style so the card gets flipped when its hovered over and for when its on the inner side */
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        /* Style front and back of the flip card */
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden; /* Safari */
+          backface-visibility: hidden;
+        }
+        /* Style specifically front of the flip card */
+        .flip-card-front {
+          background-color: #bbb;
+          color: black;
+        }
+        /* Style specifically the back of the flip-card */
+        .flip-card-back {
+          width:100%;
+          height:100%;
+          background-color: darkorange;
+          color: white;
+          transform: rotateY(180deg);
+        }
+        /* Style the h3 tag */
+        h3 {
+          color:darkorange;
+          font-size:30px;
+          text-align: center;
+          padding:10px;
+          border:dotted; /*Dotted border */
+        }
+        /*Add top margin, center the content of footer, etc. for the footer tag */
+        footer {
+          margin-top: 30px;
+          text-align:center;
+          padding:10px;
+          background-color: black;
+          color:darkorange;
+        }
+        /* Style the overall fa class */
+        .fa {
+          padding: 20px;
+          font-size: 40px;
+          width: 50px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+        }
+        /*Style the hover for the fa class */
+        .fa:hover {
+          opacity: 0.7;
+        }
+        /*Style the individual social media icons */
+        .fa-facebook, .fa-twitter, .fa-instagram, .fa-youtube {
+          background: black;
+          color: darkorange;
+        }
+
+
+
+
+
+
+
+    </style>
+
+  </head> <!-- END of the HEAD Section ------------------------------------------------------>
+
+  <body> <!-- START of the BODY Section ----------------------------------------------------->
+
+      
+      <div class="topnav"> <!-- START of the top navigation bar ----------------------------->
+          <!-- links to home page from logo for top nav -------------------------->
+          <a class="logo" href="index.html">Ryan's SDG Bonanza</a>
+          <!-- links to other pages for top nav ---------------------------------->
+      		<a class="links" href="both_sdgs.html">SDG 12 & 13 Relation</a>
+          <a class="links" href="sdg13.html">SDG 13</a>
+          <a class="links active" href="index.html">SDG 12</a>
+      		
+      </div> <!-- END of the top navigation bar --------------------------------------------->
+
+      <h1 class="features">SDG 12: Responsible Consumption & Production!</h1> <!-- Page header ----------------------->
+
+      <div class="bg"> <!-- Background image ----------------------------------->
+        <div class="top-left"> <!-- Center image overlay to top-left ----------------->
+
+          <h2 class="img-caption">It Takes All of Us</h2> <!-- Image Header ------------->
+          <p class="img-descrip"><strong>Tackling sustainability with production and consumption is no small task. To make a difference, all of us need to come together and unite, that's why the UN is so important blah blah blah...</strong></p> <!-- Image description -------------------->
+          <button onclick = "location.href = 'https://sdgs.un.org/goals/goal12';" class="img-button">Learn More</button> <!-- Learn More Button for bg image ----->
+          
+        </div>
+      </div>
+
+      <!-- START of the ACCORDION Section -------------------------------------------------->
+      <button class="accordion">How our World Produces and Consumes</button> <!-- Each Accordion Header is technically a button ------------>
+      <div class="panel"> <!-- Hidden panel below each accordion header -------------->
+        <div class="panel-row"> <!-- START of Panel Row ------------------------------>
+
+          <div class="panel-column"> <!-- START of first Panel Column ------------------------------>
+            <ul> <!-- Unordered list for first column ---------------------------------------->
+              <li>Point 1 about how we consume renewable natural resources at a high rate like timber, water, etc.</li>
+              <li>Point 2 about our increasing electronic waste</li>
+              <li>Point 3 talk about our rising material foot print, especially in wealthy countries compared to middle low class countries</li>
+            </ul>
+          </div> <!-- END of first Panel Column ------------------------------>
+
+          <div class="panel-column"> <!-- START of second Panel Column ------->
+            <img src="garbage.jpg" alt="Garbage" style="border:5px solid black"> <!-- Waste Image for second column --------------->
+          </div> <!-- END of second Panel Column ------->
+
+        </div> <!-- END of Panel Row ------------------------------>
+      </div> <!-- END of First Hidden Panel ----------------------->
+
+      <!-- rest of accordion buttons and panels follow similar pattern as above ------------------------>
+      <button class="accordion accordion2">Policies Put in Place</button>
+      <div class="panel">
+        <div class="panel-row">
+
+          <div class="panel-column">
+            <ol>
+              <li>First Policy</li>
+              <li>Second Policy</li>
+              <li>Third Policy</li>
+              <li>Etc.</li>
+            </ol>
+          </div>
+
+          <div class="panel-column">
+            <img src="government.jpg" alt="Government" style="border:5px solid black;width:100%">
+          </div>  
+
+        </div>
+      </div>
+
+      <button class="accordion accordion3">How You Can Help</button>
+      <div class="panel">
+        <div class="panel-row">
+
+          <div class="panel-column">
+            <ol>
+              <li>First Way</li>
+              <li>Second Way</li>
+              <li>Third Way</li>
+              <li>Etc.</li>
+            </ol>
+          </div>
+
+          <div class="panel-column">
+            <img src="helping.jpg" alt="Helping Hands" style="border:5px solid black;width:100%">
+          </div>  
+
+        </div>
+      </div>
+      <!-- END of the ACCORDION Section -------------------------------------------------->
+
+      <h3>A Look at Present Ideas</h3> <!-- Header tag for next section ------->
+
+
+
+      <div class="row"> <!-- START of row of Flip Card -------->
+
+        <div class="column"> <!-- START of first column ------>
+
+          <div class="flip-card"> <!-- START of first flipcard ---->
+            <div class="flip-card-inner"> <!-- Essentially each flip card will have a front and back, in this case front contains tesla image, back contains header and description ------>
+              <div class="flip-card-front">
+                <img src="tesla.jpg" alt="Tesla" style="width:100%;">
+              </div>
+              <div class="flip-card-back">
+                <h1>Tesla</h1>
+                <p>Electric Car Company</p>
+                <p>Basic Description</p>
+              </div>
+            </div>
+          </div>
+          
+        </div> <!-- END of first flip card ------------->
+
+        <!-- Rest of flip cards follow some structure as above -------->
+        <div class="column"> 
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="turbine.jpg" alt="Wind Turbine" style="width:100%;height:250px;">
+              </div>
+              <div class="flip-card-back">
+                <h1>Wind Turbines</h1>
+                <p>Wind Energy</p>
+                <p>Basic Description</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="column">
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="rubicon.png" alt="Rubicon" style="width:100%;">
+              </div>
+              <div class="flip-card-back">
+                <h1>Rubicon</h1>
+                <p>"The Uber of Trash"</p>
+                <p>Basic Description</p>
+              </div>
+            </div>
+          </div>
+
+         </div> 
+
+      </div> <!-- END of row of Flip Cards -------->
+
+      <!-- Youtube video iframe tag allowing video to be shown on the website. I made the width fully stretched, and height 85%. I allowed autoplay, and for video to be accelerated, and I allowed the vid to be put in full screen ------>
+      <iframe style="width:100%;height:85%;" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+      <footer> <!-- START of footer section ----->
+        <!-- Social Media Icons for footer ------>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-youtube"></a>
+
+      </footer> <!-- END of footer section ----->
+        
+
+    
+
+      <script> //START of JS 
+      //define variables, let acc represent accordion class and i be index var for the for loop
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) { //i is 0 at start, as long as i is less than var acc length, add 1 to i
+        acc[i].addEventListener("click", function() { //if accordion is clicked, go through this function
+          this.classList.toggle("active-accord"); //toggle to active or non-active
+          var panel = this.nextElementSibling; // var panel represents the next element
+          if (panel.style.display === "block") { //if the next element is to be in block display, that means right now you set the display to none
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block"; //else means right now you set the display for the accordion to be block 
+          }
+        });
+      }
+      </script> <!-- END of JS -------------------->
+
+  </body> <!-- END of the BODY Section ------------------------------------------------------>
+
+</html>
